@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  events.xsd — XML Schema Definition for events.xml
+  
+  An XSD is more powerful than a DTD because it can:
+  - Define data types (string, integer, date, time)
+  - Specify value constraints (minInclusive, maxLength, etc.)
+  - Use namespaces
+  - Define complex types for reuse
+  
+  This XSD validates the same events.xml structure as events.dtd
+  but adds data type checking on each element.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Root element: events contains one or more event elements -->
+    <xs:element name="events">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- minOccurs="1" maxOccurs="unbounded" = one or more events -->
+                <xs:element name="event" type="EventType"
+                            minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Complex type: EventType — defines the structure of each <event> element -->
+    <xs:complexType name="EventType">
+        <xs:sequence>
+            <!-- title: non-empty string, max 200 characters -->
+            <xs:element name="title">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="200"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+
+            <!-- type: must be either "Seminar" or "Workshop" -->
+            <xs:element name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Seminar"/>
+                        <xs:enumeration value="Workshop"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+
+            <!-- department: non-empty string -->
+            <xs:element name="department" type="xs:string"/>
+
+            <!-- date: must be a valid date in YYYY-MM-DD format -->
+            <xs:element name="date" type="xs:date"/>
+
+            <!-- time: plain string (HH:mm format; using string for simplicity) -->
+            <xs:element name="time" type="xs:string"/>
+
+            <!-- venue: non-empty string -->
+            <xs:element name="venue" type="xs:string"/>
+
+            <!-- speaker: non-empty string -->
+            <xs:element name="speaker" type="xs:string"/>
+
+            <!-- seats: positive integer, at least 1 -->
+            <xs:element name="seats">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="5000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+
+            <!-- description: optional text -->
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+
+        </xs:sequence>
+
+        <!-- id attribute: required, type xs:ID ensures uniqueness -->
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

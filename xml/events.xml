@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  events.xml — Sample XML File for Seminar Data
+  
+  This file demonstrates:
+  - XML syntax: elements, attributes, text content, nesting
+  - Well-formed XML document structure
+  - Meaningful data representation
+  
+  This XML is validated by:
+  - events.dtd  (Document Type Definition)
+  - events.xsd  (XML Schema Definition)
+  
+  And can be transformed using:
+  - events.xsl  (XSLT stylesheet — produces HTML)
+  
+  And can be parsed using Java:
+  - DomParserDemo.java  (DOM Parser)
+  - SaxParserDemo.java  (SAX Parser)
+-->
+<!DOCTYPE events SYSTEM "events.dtd">
+<events>
+
+    <event id="E001">
+        <title>Introduction to Machine Learning</title>
+        <type>Seminar</type>
+        <department>Computer Science</department>
+        <date>2026-11-10</date>
+        <time>10:00</time>
+        <venue>Seminar Hall A</venue>
+        <speaker>Dr. Priya Sharma</speaker>
+        <seats>80</seats>
+        <description>
+            A beginner-friendly seminar covering the fundamentals of machine learning,
+            including supervised and unsupervised learning algorithms.
+        </description>
+    </event>
+
+    <event id="E002">
+        <title>Web Development with Java EE</title>
+        <type>Workshop</type>
+        <department>Computer Science</department>
+        <date>2026-11-15</date>
+        <time>09:30</time>
+        <venue>Lab Block 3, Room 301</venue>
+        <speaker>Prof. Ramesh Kumar</speaker>
+        <seats>40</seats>
+        <description>
+            Hands-on workshop on building enterprise web applications using
+            Java Servlets, JSP, and JDBC with MySQL.
+        </description>
+    </event>
+
+    <event id="E003">
+        <title>Cloud Computing Fundamentals</title>
+        <type>Seminar</type>
+        <department>Information Technology</department>
+        <date>2026-11-20</date>
+        <time>14:00</time>
+        <venue>Seminar Hall B</venue>
+        <speaker>Dr. Anjali Mehta</speaker>
+        <seats>100</seats>
+        <description>
+            A seminar on cloud architecture, deployment models (IaaS, PaaS, SaaS),
+            and introduction to AWS and Azure services.
+        </description>
+    </event>
+
+    <event id="E004">
+        <title>Python for Data Analysis</title>
+        <type>Workshop</type>
+        <department>Information Technology</department>
+        <date>2026-11-25</date>
+        <time>10:00</time>
+        <venue>Computer Lab 2</venue>
+        <speaker>Ms. Deepa Nair</speaker>
+        <seats>30</seats>
+        <description>
+            Workshop on using Python libraries such as Pandas and Matplotlib
+            for data analysis and visualization.
+        </description>
+    </event>
+
+    <event id="E005">
+        <title>Cybersecurity Awareness</title>
+        <type>Seminar</type>
+        <department>Electronics and Communication</department>
+        <date>2026-12-01</date>
+        <time>11:00</time>
+        <venue>Main Auditorium</venue>
+        <speaker>Mr. Suresh Patel</speaker>
+        <seats>150</seats>
+        <description>
+            Seminar covering common cyber threats, best practices for online safety,
+            and an introduction to ethical hacking.
+        </description>
+    </event>
+
+</events>

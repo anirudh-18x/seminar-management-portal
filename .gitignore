@@ -1,0 +1,19 @@
+# Database credentials — NEVER commit this file
+db.properties
+
+# Compiled Java classes
+*.class
+out/
+classes/
+
+# IDE files
+.vscode/
+*.iml
+.idea/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Tomcat deploy artifacts
+*.war

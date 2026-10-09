@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  web.xml — Deployment Descriptor
+  
+  This file tells Tomcat how to configure the web application:
+  - The display name shown in Tomcat Manager.
+  - The welcome file (home page).
+  - Error pages for common HTTP errors.
+  
+  Note: Servlet URL mappings are declared using @WebServlet annotations
+  in each servlet class, so they do not need to be listed here.
+  
+  DTD/XSD: This file itself uses the Servlet 3.1 XSD (Tomcat 9 default).
+-->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <display-name>College Seminar and Workshop Management Portal</display-name>
+    <description>A web portal for managing college seminars and workshops.</description>
+
+    <!-- Welcome file: the page shown when the root URL is accessed -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Default session timeout: 30 minutes -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!-- Custom error pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error-404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error-500.jsp</location>
+    </error-page>
+
+</web-app>

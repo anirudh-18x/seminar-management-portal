@@ -1,0 +1,32 @@
+<!--
+  events.dtd — Document Type Definition for events.xml
+  
+  A DTD defines the allowed structure of an XML document.
+  It specifies:
+  - Which elements are allowed
+  - The order and nesting of elements
+  - Which attributes elements can have
+  - Whether elements/attributes are required or optional
+  
+  This DTD says:
+  - <events> is the root element containing one or more <event> elements.
+  - Each <event> has an 'id' attribute (required).
+  - Each <event> must contain exactly these child elements in this order:
+    title, type, department, date, time, venue, speaker, seats, description
+  - All child elements contain text content (#PCDATA = Parsed Character Data).
+-->
+
+<!ELEMENT events (event+)>
+
+<!ELEMENT event (title, type, department, date, time, venue, speaker, seats, description)>
+<!ATTLIST event id ID #REQUIRED>
+
+<!ELEMENT title       (#PCDATA)>
+<!ELEMENT type        (#PCDATA)>
+<!ELEMENT department  (#PCDATA)>
+<!ELEMENT date        (#PCDATA)>
+<!ELEMENT time        (#PCDATA)>
+<!ELEMENT venue       (#PCDATA)>
+<!ELEMENT speaker     (#PCDATA)>
+<!ELEMENT seats       (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
