@@ -128,41 +128,9 @@ java XsltDemo
 
 ## Security Features
 
-- Passwords hashed with SHA-256 (not stored in plaintext)
 - PreparedStatement used for all user-input queries (prevents SQL injection)
 - Admin session guard on all `/admin/*` pages
 - HTML escaping when displaying user-provided data
 - Credentials stored in `db.properties` (excluded from Git)
 
 ---
-
-## Git Setup (Basic Version Control)
-
-```powershell
-cd C:\Users\DELL\OneDrive\Desktop\Projects\CollegeSeminarPortal
-
-# Initialize repository
-git init
-
-# Stage all files (db.properties is excluded by .gitignore)
-git add .
-
-# Verify db.properties is NOT staged
-git status
-
-# First commit
-git commit -m "Initial commit: College Seminar Portal"
-```
-
----
-
-## Troubleshooting
-
-| Problem | Solution |
-|---------|----------|
-| `ClassNotFoundException: com.mysql.cj.jdbc.Driver` | Check mysql-connector jar is in WEB-INF/lib/ |
-| `db.properties not found in classpath` | Ensure db.properties is in WEB-INF/classes/ |
-| HTTP 404 on servlet URLs | Check @WebServlet annotation matches the URL |
-| Login not working | Verify the SHA-256 hash in admins table matches `Admin@1234` |
-| Compilation errors | Run build.bat from project root, check JDK path |
-| MySQL connection refused | Ensure MySQL service is running |
