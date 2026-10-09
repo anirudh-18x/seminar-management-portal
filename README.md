@@ -57,68 +57,6 @@ CollegeSeminarPortal/
 └── .gitignore
 ```
 
----
-
-## Setup Instructions
-
-### Step 1: Configure Database Credentials
-
-Open `db.properties` and replace `YOUR_MYSQL_PASSWORD_HERE` with your actual MySQL root password:
-
-```properties
-db.url=jdbc:mysql://localhost:3306/seminar_portal?useSSL=false&serverTimezone=Asia/Kolkata&allowPublicKeyRetrieval=true
-db.username=root
-db.password=your_actual_password
-```
-
-### Step 2: Create the Database
-
-Open a PowerShell or Command Prompt window and run:
-
-```powershell
-# Run schema (creates tables and stored procedure)
-& "C:\Program Files\MySQL\MySQL Server 26.7\bin\mysql.exe" -u root -p < database\schema.sql
-
-# Insert sample data (events, admin account, sample students)
-& "C:\Program Files\MySQL\MySQL Server 26.7\bin\mysql.exe" -u root -p < database\sample-data.sql
-```
-
-Or in MySQL Workbench: open and run `schema.sql`, then `sample-data.sql`.
-
-### Step 3: Build and Deploy
-
-Make sure Tomcat is **stopped** before deploying (or use Tomcat's hot-reload).
-
-Double-click `build.bat` or run it from PowerShell:
-
-```powershell
-.\build.bat
-```
-
-This compiles all Java files and copies everything to:
-`C:\...\apache-tomcat-9.0.122\webapps\SeminarPortal\`
-
-### Step 4: Start Tomcat
-
-```powershell
-& "C:\Users\DELL\Downloads\apache-tomcat-9.0.122-windows-x64\apache-tomcat-9.0.122\bin\startup.bat"
-```
-
-Wait a few seconds for Tomcat to start.
-
-### Step 5: Open the Application
-
-Open your browser and go to:
-- **Home:** `http://localhost:8080/SeminarPortal/`
-- **Events:** `http://localhost:8080/SeminarPortal/events`
-- **Admin Login:** `http://localhost:8080/SeminarPortal/admin/login`
-
-**Default Admin Credentials:**
-- Username: `admin`
-- Password: `Admin@1234`
-
----
-
 ## Pages and URLs
 
 | URL | Description |
